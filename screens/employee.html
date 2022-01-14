@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dash-board</title>
+    <!-- Latest compiled and minified CSS -->
+
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap-grid.rtl.css" />
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap-reboot.min.css" />
+    <link
+      rel="stylesheet"
+      href="../Bootstrap/css/bootstrap-reboot.rtl.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../Bootstrap/css/bootstrap-utilities.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../Bootstrap/css/bootstrap-utilities.rtl.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../styles/employee-dash-board/emp-dash-board.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/v/bs5/dt-1.11.3/datatables.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css"
+    />
+    <script src="../libs/jquery-3.6.0.js"></script>
+    <script src="../Bootstrap/js/bootstrap.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+
+    <script src="../libs/jquery-3.6.0.js"></script>
+
+    <script src="../utils/services/MailingService.js"></script>
+    <script type="module" src="../js/employee.js"></script>
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"
+    ></script>
+
+    <!--    <script src="../Bootstrap/js/bootstrap.bundle.min.js"></script>-->
+    <!--    <script src="../Bootstrap/js/bootstrap.esm.min.js"></script>-->
+  </head>
+  <body>
+    <!--~NAVBAR-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <!--!OFFCANVAS TRIGGER-->
+        <a
+          class="navbar-toggler"
+          data-bs-toggle="offcanvas"
+          href="#offcanvasExample"
+          role="button"
+          aria-controls="offcanvasExample"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </a>
+        <!--!OFFCANVAS TRIGGER-->
+        <a class="navbar-brand fw-bold text-uppercase me-auto" href="#"
+          >Tech Valley Employee</a
+        >
+      </div>
+    </nav>
+    <!--~NAVBAR-->
+
+    <!--offCanvas-->
+
+    <div
+      class="offcanvas offcanvas-start sidebar-nav bg-dark text-light"
+      tabindex="-1"
+      id="offcanvasExample"
+      aria-labelledby="offcanvasExampleLabel"
+    >
+      <div class="offcanvas-body m-0 p-0">
+        <nav class="navbar-dark">
+          <ul class="navbar-nav m-0 p-0">
+            <li>
+              <div class="text-muted small fw-bold text-uppercase px-3">
+                CORE
+              </div>
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3 active">
+                <span><i class="bi bi-speedometer2"></i></span>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="m-4">
+              <hr class="dropdown-divider" />
+            </li>
+          </ul>
+          <ul class="navbar-nav m-0 p-0">
+            <li>
+              <div class="text-muted small fw-bold text-uppercase px-3">
+                SYSTEM
+              </div>
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3 active">
+                <i class="bi bi-box-arrow-in-left"></i>
+                <span id="unique-logout">Logout</span>
+              </a>
+            </li>
+            <li class="m-4">
+              <hr class="dropdown-divider" />
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!--!main content-->
+    <main class="mt-sm-5">
+      <div class="container-fluid p-sm-4">
+        <div class="row">
+          <div class="col-md-12 fw-bold fs-3 mb-3">Employee DashBoard</div>
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body text-center">check late reports</div>
+                <div class="card-footer">
+                  <div class="btn btn-dark">check</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body text-center">check Excuse reports</div>
+                <div class="card-footer">
+                  <div class="btn btn-dark">check</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body text-center">check Attendance Notes</div>
+                <div class="card-footer">
+                  <div class="btn btn-dark">check</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <form class="mt-3">
+            <input class="form-control" type="text" name="employee-unique-key" id="employee-unique-key" placeholder="enter your unique key to confirm attendance">
+            <button id="employee-attendance-seek" class="btn btn-dark mt-3 w-100 fw-bold">confirm attendance</button>
+          </form>
+        </div>
+      </div>
+      
+
+      
+    </main>
+  </body>
+</html>

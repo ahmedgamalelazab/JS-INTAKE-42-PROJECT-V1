@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dash-board</title>
+    <!-- Latest compiled and minified CSS -->
+
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap-grid.rtl.css" />
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap-reboot.min.css" />
+    <link
+      rel="stylesheet"
+      href="../Bootstrap/css/bootstrap-reboot.rtl.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../Bootstrap/css/bootstrap-utilities.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../Bootstrap/css/bootstrap-utilities.rtl.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../styles/dash-board-styles/admin-dash-board.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/v/bs5/dt-1.11.3/datatables.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css"
+    />
+    <script src="../libs/jquery-3.6.0.js"></script>
+    <script src="../Bootstrap/js/bootstrap.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+
+    <script src="../libs/jquery-3.6.0.js"></script>
+
+    <script src="../utils/services/MailingService.js"></script>
+    <script type="module" src="../js/admin-full-report.js"></script>
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"
+    ></script>
+
+    <!--    <script src="../Bootstrap/js/bootstrap.bundle.min.js"></script>-->
+    <!--    <script src="../Bootstrap/js/bootstrap.esm.min.js"></script>-->
+    <style>
+         h1,
+        h3 {
+            text-align: center;
+        }
+ 
+        table {
+            border-spacing: 0px;
+            table-layout: fixed;
+            margin-left: auto;
+            margin-right: auto;
+        }
+ 
+        th {
+            color: green;
+            border: 1px solid black;
+            padding: 10px;            
+            padding: 20px;
+            border: 1px solid white;
+
+        }
+ 
+        td {
+            border: 1px solid black;
+            word-wrap: break-word;
+            padding: 20px;
+            border: 1px solid white;
+        }
+      
+    </style>
+  </head>
+  <body>
+    <!--~NAVBAR-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <!--!OFFCANVAS TRIGGER-->
+        <a
+          class="navbar-toggler"
+          data-bs-toggle="offcanvas"
+          href="#offcanvasExample"
+          role="button"
+          aria-controls="offcanvasExample"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </a>
+        <!--!OFFCANVAS TRIGGER-->
+        <a class="navbar-brand fw-bold text-uppercase me-auto" href="#"
+          >Tech Valley Admin</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a id="admin-home-view" class="nav-link" aria-current="page" href="./admin.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a id="admin-full-report-view" class="nav-link active" aria-current="page" href="./admin-full-report.html">Full reports</a>
+            </li>
+            <li class="nav-item">
+              <a id="admin-late-report-view" class="nav-link" aria-current="page" href="./admin-late-report.html">Late Reports</a>
+            </li>
+            <li class="nav-item">
+              <a id="admin-excuse-report-view" class="nav-link" aria-current="page" href="./admin-excuse-report.html">Excuse reports</a>
+            </li>
+            <li class="nav-item">
+              <a id="admin-attendance-report" class="nav-link" aria-current="page" href="./admin-attendace-report.html">Attendance reports</a>
+            </li>
+            <li class="nav-item">
+              <a id="admin-departure-report" class="nav-link" aria-current="page" href="./admin-departure.html">Departure reports</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--~NAVBAR-->
+
+    
+    <!--!main content-->
+    <main class="container-fluid text-sm-center">
+
+      <div id="myRow" class="row position-absolute">        
+      <table id="full-table" class="table-responsive bg-dark text-white fw-bold">
+        <tr>
+          <th>Employee Name</th>
+          <th>emp-Email</th>
+          <th>emp-departure</th>
+          <th>attendance</th>
+          <th>message</th>
+          <!-- <th>report ID</th> -->
+          <!-- <th>user-ID</th> -->
+          <!-- <th>report-submit-time</th> -->
+          <!-- <th>confirmed</th> -->
+          <!-- <th>confirmed-on</th> -->
+          <!-- <th>late-report</th> -->
+        </tr>
+      </table>
+      </div>
+
+    </main>  
+  </body>
+</html>

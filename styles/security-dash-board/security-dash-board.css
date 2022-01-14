@@ -1,0 +1,53 @@
+
+
+*{
+    box-sizing: border-box;
+    overflow-x: hidden !important;    
+    overflow-y: auto !important;
+}
+
+:root{
+    --offcanvas-width: 270px;
+    --topNaavBarHeight:56px;
+}
+
+
+
+.sidebar-nav{
+    width: var(--offcanvas-width);
+}
+
+.dataTables_length{
+    /* width: 50% !important; */
+    min-width: 50px !important;
+    padding: 10px !important;
+}
+
+.dataTables_filter{
+    /* width: 50% !important; */
+    min-width: 50px !important;
+    padding: 10px !important;
+}
+
+
+@media (min-width:992px){
+    
+    body{
+        overflow: auto !important;
+    }
+    main{
+        margin-left: var(--offcanvas-width);
+        height: 100% !important;
+    }
+    .offcanvas-backdrop.fade{
+        display:none;
+    }
+
+    .sidebar-nav{
+        transform: none;
+        visibility: visible !important;
+        top:var(--topNaavBarHeight);
+        height:calc(100% - var(--topNaavBarHeight));
+    }
+
+}

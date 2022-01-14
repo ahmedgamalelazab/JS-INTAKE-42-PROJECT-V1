@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dash-board</title>
+    <!-- Latest compiled and minified CSS -->
+
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap-grid.rtl.css" />
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap-reboot.min.css" />
+    <link
+      rel="stylesheet"
+      href="../Bootstrap/css/bootstrap-reboot.rtl.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../Bootstrap/css/bootstrap-utilities.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../Bootstrap/css/bootstrap-utilities.rtl.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../styles/security-dash-board/security-dash-board.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/v/bs5/dt-1.11.3/datatables.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css"
+    />
+    <script src="../libs/jquery-3.6.0.js"></script>
+    <script src="../Bootstrap/js/bootstrap.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+
+    <script src="../libs/jquery-3.6.0.js"></script>
+
+    <script src="../utils/services/MailingService.js"></script>
+    <script type="module" src="../js/security.js"></script>
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"
+    ></script>
+
+    <!--    <script src="../Bootstrap/js/bootstrap.bundle.min.js"></script>-->
+    <!--    <script src="../Bootstrap/js/bootstrap.esm.min.js"></script>-->
+  </head>
+  <body>
+    <!--~NAVBAR-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <!--!OFFCANVAS TRIGGER-->
+        <a
+          class="navbar-toggler"
+          data-bs-toggle="offcanvas"
+          href="#offcanvasExample"
+          role="button"
+          aria-controls="offcanvasExample"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </a>
+        <!--!OFFCANVAS TRIGGER-->
+        <a class="navbar-brand fw-bold text-uppercase me-auto" href="#"
+          >Tech Valley Security</a
+        >
+      </div>
+    </nav>
+    <!--~NAVBAR-->
+
+    <!--offCanvas-->
+
+    <div
+      class="offcanvas offcanvas-start sidebar-nav bg-dark text-light"
+      tabindex="-1"
+      id="offcanvasExample"
+      aria-labelledby="offcanvasExampleLabel"
+    >
+      <div class="offcanvas-body m-0 p-0">
+        <nav class="navbar-dark">
+          <ul class="navbar-nav m-0 p-0">
+            <li>
+              <div class="text-muted small fw-bold text-uppercase px-3">
+                CORE
+              </div>
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3 active">
+                <span><i class="bi bi-speedometer2"></i></span>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="m-4">
+              <hr class="dropdown-divider" />
+            </li>
+          </ul>
+          <ul class="navbar-nav m-0 p-0">
+            <li>
+              <div class="text-muted small fw-bold text-uppercase px-3">
+                SYSTEM
+              </div>
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3 active">
+                <i class="bi bi-box-arrow-in-left"></i>
+                <span id="unique-logout">Logout</span>
+              </a>
+            </li>
+            <li class="m-4">
+              <hr class="dropdown-divider" />
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">
+              System Attendance Control Panel
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form action="" class="row g-3 needs-validation">
+              <label for="sequiry-name" class="form-label"
+                >Security uniqueName</label
+              >
+              <input
+                type="text"
+                name="securityName"
+                id="sequiry-name"
+                class="form-control"
+              />
+              <div id="security-identity" class="invalid-feedback">
+                enter your security identity
+              </div>
+              <div id="incorrect-identity" class="invalid-feedback">
+                credentials error
+              </div>
+              <label for="sequiry-password" class="form-label"
+                >Security Password</label
+              >
+              <input
+                type="password"
+                name="securityPassword"
+                id="sequiry-password"
+                class="form-control"
+              />
+              <div id="security-password" class="invalid-feedback">
+                Pleas insert your password
+              </div>
+              <div id="security-password-wrong" class="invalid-feedback">
+                credentials error
+              </div>
+              <label for="system-attendance-date" class="form-label"
+                >Pick system Attendance Date</label
+              >
+              <input
+                type="datetime-local"
+                name="attendanceDate"
+                id="system-attendance-date"
+                class="form-control"
+              />
+              <div id="security-dates" class="invalid-feedback">
+                Pleas pick the date of the service
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer d-flex flex-row justify-content-between">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              id="system-turn-on-button"
+              type="button"
+              class="btn btn-primary w-50"
+            >
+              Turn on Attendance Service
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--!main content-->
+    <main class="mt-sm-5">
+      <div class="container-fluid p-sm-4">
+        <div class="row p-2">
+          <div class="col-sm-6">
+            <div class="col-md-12 fw-bold fs-3 mb-3">Security DashBoard</div>
+          </div>
+          <div class="col-sm-6 d-flex flex-row justify-content-end">
+            <button
+              id="turn-system-on-btn"
+              class="btn btn-primary bg-dark fw-bold w-auto"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+            >
+              Turn System On
+            </button>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-center gx-3 gy-3">
+          <div class="col-lg-3 d-flex">
+            <div class="card w-100 border-dark shadow-lg">
+              <div
+                class="card-header bg-dark text-white fw-bold text-center p-2"
+              >
+                user-info
+              </div>
+              <img
+                id="user-image-preview"
+                src="../assets/edit_user.png"
+                class="card-img-top d-block mx-auto m-auto p-sm-3 img-fluid"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 id="user-name-left" class="card-title text-end">
+                  user name
+                </h5>
+                <p class="card-text text-end">
+                  Don't forget to submit report before confirming Employee attendance
+                </p>
+                <div class="card-user-container w-100 text-center">
+                  <a
+                    id="href"
+                    ="#"
+                    class="active-user-btn btn btn-primary w-100 bg-dark disabled"
+                    >Pick user from table</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col d-flex">
+            <div class="card w-100 border-dark shadow-lg fw-bold">
+              <div class="card-title bg-dark text-white text-center p-2">
+                System users
+              </div>
+              <div class="card-body">
+                <table
+                  id="data-table"
+                  class="table table-dark table-bordered table-hover table-responsive-sm w-100"
+                ></table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        id="message-sent-successfully"
+        class="alert alert-success alert-dismissible fade show m-3"
+        role="alert"
+        style="display: none"
+      >
+        <strong>Success</strong>
+        <p id="genericSuccessMessage"></p>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      <div
+        id="message-sent-fail"
+        class="alert alert-danger alert-dismissible fade show m-3"
+        role="alert"
+        style="display: none"
+      >
+        <strong>Failed</strong>
+        <p id="genericeFailMessage"></p>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="container p-4">
+        <table id="employees-request-table" class="table table-dark table-responsive text-center">
+          <tr>
+            <th>emp name</th>
+            <th>emp Number</th>
+            <th>emp email</th>
+            <th>system attendance</th>
+            <th>Employee attendance</th>
+            <th>submit report</th>           
+          </tr>          
+        </table>
+      </div>
+    </main>
+  </body>
+<!--~report modal sheet-->
+  <div
+    class="modal fade"
+    id="attendance-Report"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Attendance Report</h5>
+          <button
+            id="attendance-report-close-btn"
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="user-unique-attendance-report" class="col-form-label"
+                >User Unique</label
+              >
+              <input type="text" name="user-attendance" id="user-unique-attendance-report" class="form-control">              
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Message:</label>
+              <textarea class="form-control" id="attendance-Message"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button id="submit-attendance-report" type="button" class="btn btn-primary w-50">Submit Report</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--! Late Modal-->
+  <div
+  class="modal fade"
+  id="LateReportmodalSheet"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Late Report</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="later-report-input" class="col-form-label"
+              >User Unique</label
+            >
+            <input type="text" name="user-attendance" id="later-report-input" class="form-control">              
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Reason for late :</label>
+            <textarea class="form-control" id="late-excuse-message"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          id="late-report-close-button"
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+        <button id= "late-report-submit" type="button" class="btn btn-primary w-50">Submit Report</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <!--! Late Modal-->
+
+  <!--! Absence Modal-->
+  <div
+  class="modal fade"
+  id="absence-modalSheet"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Absence Report</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="absence-report-input" class="col-form-label"
+              >User Unique</label
+            >
+            <input type="text" name="user-attendance" id="absence-report-input" class="form-control">              
+          </div>
+          <div class="mb-3">
+            <label for="absence-report-message" class="col-form-label">Reason for absence:</label>
+            <textarea class="form-control" id="absence-report-message"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          id="absence-report-close-button"
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+        <button id="absence-report-submit-btn" type="button" class="btn btn-primary w-50">Submit Report</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <!--! Absence Modal-->
+  
+  
+  <!--! excuse Modal-->
+  <div
+  class="modal fade"
+  id="excuse-modalSheet"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Absence Report</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="excuse-report-input" class="col-form-label"
+              >User Unique</label
+            >
+            <input type="text" name="user-attendance" id="excuse-report-input" class="form-control">              
+          </div>
+          <div class="mb-3">
+            <label for="excuse-report-message" class="col-form-label">Reason for absence:</label>
+            <textarea class="form-control" id="excuse-report-message"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          id="excuse-report-close-button"
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+        <button id= "excuse-report-btn" type="button" class="btn btn-primary w-50">Submit Report</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <!--! excuse Modal-->
+
+  
+  <!--! Departure Modal-->
+  <div
+  class="modal fade"
+  id="departure-modalSheet"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Departure Report</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="departure-report-input" class="col-form-label"
+              >User Unique</label
+            >
+            <input type="text" name="user-attendance" id="departure-report-input" class="form-control">              
+          </div>
+         <div> <label for="btnradio" class="form-label">Reason for leaving</label></div>
+          <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio1">Excuse</label>
+          
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" checked>
+            <label class="btn btn-outline-primary" for="btnradio2">Normal Leaving</label>
+          
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio3">emergency</label>
+          </div>              
+          <div class="mb-3">
+            <label for="departure-report-message" class="col-form-label">Reason In Details:</label>
+            <textarea class="form-control" id="departure-report-message"></textarea>
+          </div>
+          </div>
+        </form>
+        <div class="modal-footer">
+          <button
+            id="departure-report-close-button"
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button id= "departure-report-btn" type="button" class="btn btn-primary w-50">Submit Report</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <!--! Departure Modal-->
+  
+  
+
+  <!--~TOAST-->
+  <div
+    class="position-absolute bottom-0 end-0 translate-middle p-3"
+    style="z-index: 11"
+  >
+    <div
+      id="liveToast"
+      class="toast"
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true"
+    >
+      <div class="toast-header">
+        <img src="../assets/system_eye.png" class="rounded me-2" alt="..." />
+        <strong class="me-auto">System State</strong>
+        <small id="toast-small-state">Up and Running !</small>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="toast"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div id="toast-body-state" class="toast-body">
+        System now is watching Employees attendance
+      </div>
+    </div>
+  </div>
+</html>
