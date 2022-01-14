@@ -13,7 +13,7 @@ some feautures i have build by myself :
 3- i designed two pool apis to listen on changes with the localStorage and fetch the updated data and update the ui automatic
 
 #some bad things i did : 
-## coding so heavy because i was working on c++ and SQL in the same time so i lost control on my code structure .. 
+## coding was so  heavy because i was working on c++ and SQL in the same time so i lost control on my code structure .. 
 but next release i will fix all the bugs and clean the code which repeated a lot in security file ..  
 
 
