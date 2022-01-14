@@ -1,6 +1,5 @@
 # JS-INTAKE-42-PROJECT-V1
 JS Dynamic attendance  app
-![Alt Text](https://media.giphy.com/media/gYF9dNVF2fmSGYrgPn/giphy.gif)
 
 i didn't focus on implementing the following : 
 1- form validation 
@@ -16,3 +15,7 @@ some feautures i have build by myself :
 #some bad things i did : 
 ## the code was so heavy because i was working on c++ and SQL in the same time so i lost control on my code structure .. 
 but next release i will fix all the bugs and clean the code which repeated a lot in security file ..  
+
+
+![Alt Text](https://media.giphy.com/media/gYF9dNVF2fmSGYrgPn/giphy.gif)
+
